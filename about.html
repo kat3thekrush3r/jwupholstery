@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — JW Upholstery</title>
+<meta name="description" content="The story behind JW Upholstery — a small Tallahassee workshop founded by Jason White.">
+<link rel="icon" type="image/svg+xml" href="assets/logos/favicon.svg">
+<link rel="apple-touch-icon" href="assets/logos/apple-touch.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter+Tight:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Founder section */
+  .founder {
+    padding: clamp(4rem, 7vw, 6.5rem) 0;
+  }
+
+  .founder-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+
+  .founder-image {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  .founder-image img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+
+  .founder-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(200, 184, 138, 0.4);
+    z-index: 2;
+  }
+
+  .founder-image-tag {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background: var(--cream-paper);
+    color: var(--ink);
+    padding: 0.7rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    z-index: 3;
+  }
+
+  .founder-content h2 {
+    font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+    margin: 1rem 0 1.75rem;
+  }
+
+  .founder-content h2 em {
+    font-family: var(--font-accent);
+    color: var(--brass-deep);
+    font-style: italic;
+  }
+
+  .founder-content p {
+    font-size: 1.08rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .signature {
+    margin-top: 2rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--ink);
+  }
+
+  .signature-name {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    font-style: normal;
+  }
+
+  @media (max-width: 860px) {
+    .founder-inner { grid-template-columns: 1fr; }
+    .founder-image { max-width: 480px; margin: 0 auto; }
+  }
+
+  /* Values strip */
+  .values {
+    background: var(--ink);
+    color: var(--cream);
+    padding: clamp(5rem, 9vw, 8rem) 0;
+  }
+
+  .values-head { text-align: center; margin-bottom: 4rem; }
+  .values-head .eyebrow { color: var(--brass); }
+  .values-head h2 {
+    color: var(--cream);
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    margin: 1rem 0;
+  }
+  .values-head h2 em { font-family: var(--font-accent); color: var(--brass); font-style: italic; }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+
+  .value {
+    text-align: center;
+  }
+
+  .value-mark {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 2.5rem;
+    color: var(--brass);
+    margin-bottom: 1rem;
+  }
+
+  .value h3 {
+    color: var(--cream);
+    font-size: 1.5rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .value h3 em { font-family: var(--font-accent); color: var(--brass); font-style: italic; }
+
+  .value p {
+    color: rgba(243, 238, 228, 0.7);
+    font-size: 0.98rem;
+  }
+
+  @media (max-width: 720px) {
+    .values-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+
+  /* Workshop info */
+  .workshop {
+    padding: clamp(5rem, 9vw, 7rem) 0;
+    text-align: center;
+    background: var(--cream);
+    border-top: 1px solid var(--cream-deep);
+  }
+
+  .workshop h2 {
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    max-width: 720px;
+    margin: 1rem auto 1.5rem;
+  }
+  .workshop h2 em { font-family: var(--font-accent); color: var(--brass-deep); font-style: italic; }
+
+  .workshop p {
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    font-size: 1.0625rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logos/horizontal-black.svg" alt="JW Upholstery">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Request a Quote</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="wrap">
+    <div class="eyebrow fade-up">— The Story</div>
+    <h1 class="fade-up d1">A workshop built on <em>quiet care</em>.</h1>
+    <p class="fade-up d2">JW Upholstery is a one-maker shop in Tallahassee, Florida. The work is slow on purpose.</p>
+  </div>
+</header>
+
+<!-- FOUNDER -->
+<section class="founder wrap">
+  <div class="founder-inner">
+    <div class="founder-image reveal">
+      <img src="assets/photos/grey-chair-with-jason.jpg" alt="Jason White, founder of JW Upholstery, in the workshop">
+      <span class="founder-image-tag">Jason White · Founder</span>
+    </div>
+    <div class="founder-content reveal">
+      <div class="eyebrow">— Meet the Maker</div>
+      <h2>Hello, I'm <em>Jason</em>.</h2>
+      <p>I started JW Upholstery because the furniture I loved most was the furniture nobody else wanted to bother with — old chairs with good bones, sofas that had been in the family for thirty years, headboards that didn't quite fit any standard size.</p>
+      <p>The work is done by hand, one piece at a time, in a small workshop here in Tallahassee. I don't run a production line. I don't outsource. Every chair that goes out the door has been touched only by me — stripped, rebuilt, sewn, fitted, and sat in before it leaves.</p>
+      <p>If you've got a piece worth saving, I'd love to hear about it.</p>
+      <div class="signature">
+        — J.W.
+        <span class="signature-name">Jason White</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="wrap">
+    <div class="values-head reveal">
+      <div class="eyebrow">— What we believe</div>
+      <h2>Three <em>quiet rules</em>.</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value reveal">
+        <div class="value-mark">i.</div>
+        <h3>Hand-<em>made</em>.</h3>
+        <p>No production line, no rushed work. Every stitch, tuft, and welt is done by hand, the way it's been done for generations.</p>
+      </div>
+      <div class="value reveal">
+        <div class="value-mark">ii.</div>
+        <h3>Honest <em>quotes</em>.</h3>
+        <p>You'll get a written estimate before any work starts, and we won't go past it without talking to you first. No surprises.</p>
+      </div>
+      <div class="value reveal">
+        <div class="value-mark">iii.</div>
+        <h3>Built to <em>last</em>.</h3>
+        <p>We use traditional methods because they outlast the modern shortcuts. Your piece should be good for another generation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKSHOP -->
+<section class="workshop">
+  <div class="wrap">
+    <div class="eyebrow reveal">— Visit the workshop</div>
+    <h2 class="reveal">We're a small shop, <em>by appointment</em>.</h2>
+    <p class="reveal">The workshop isn't a showroom — it's a working space full of fabric, frames, and projects in progress. We're happy to have you stop by to look at your piece, browse fabric samples, or just see the work. Just give us a call first.</p>
+    <a href="contact.html" class="btn reveal">Schedule a visit <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/logos/full-gold.svg" alt="JW Upholstery">
+      <p>A small workshop in Tallahassee, Florida — restoring and reupholstering furniture worth keeping.</p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><a href="tel:+18505551234">(850) 555-1234</a></p>
+      <p><a href="mailto:jason@jwupholstery.com">jason@jwupholstery.com</a></p>
+      <p style="margin-top: 1rem;">Tallahassee, Florida</p>
+      <p>By appointment</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 JW Upholstery</span>
+    <span>Atelier &amp; Workshop · Est. Tallahassee</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

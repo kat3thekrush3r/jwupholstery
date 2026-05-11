@@ -136,13 +136,7 @@ section { padding: clamp(4rem, 8vw, 7rem) 0; position: relative; z-index: 2; }
   gap: 0.75rem;
 }
 
-.nav-brand img { height: 88px; width: auto; }
-.nav-brand .logo-mobile { display: none; }
-
-@media (max-width: 640px) {
-  .nav-brand .logo-desktop { display: none; }
-  .nav-brand .logo-mobile { display: block; height: 56px; }
-}
+.nav-brand img { height: 88px; width: auto; max-width: 60vw; }
 
 .nav-links {
   display: flex;

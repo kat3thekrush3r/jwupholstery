@@ -12,44 +12,68 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter+Tight:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .gallery-intro {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 3rem var(--pad) 1rem;
-  }
-  .gallery-intro p { font-size: 1.05rem; }
+  .featured-project { padding: clamp(4rem, 8vw, 7rem) 0; }
 
-  /* Project cards — magazine style */
-  .projects { padding: clamp(3rem, 6vw, 5rem) 0; }
-
-  .project {
-    margin-bottom: clamp(5rem, 9vw, 8rem);
+  .featured-meta {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: baseline;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--cream-deep);
   }
 
-  .project:last-child { margin-bottom: 0; }
+  .featured-num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--brass-deep);
+  }
 
-  .project-grid {
+  .featured-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.2;
+    font-weight: 400;
+  }
+
+  .featured-title em {
+    font-family: var(--font-accent);
+    color: var(--brass-deep);
+    font-style: italic;
+  }
+
+  .featured-tag {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  .ba-pair {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: clamp(1rem, 2vw, 1.5rem);
-    margin-bottom: 1.5rem;
   }
 
-  .project-img {
+  .ba-frame {
     position: relative;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
   }
 
-  .project-img img {
-    width: 100%; height: 100%; object-fit: cover;
+  .ba-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
     transition: transform 1.5s cubic-bezier(0.2, 0.7, 0.3, 1);
   }
 
-  .project-img:hover img { transform: scale(1.03); }
+  .ba-frame:hover img { transform: scale(1.03); }
 
-  .project-img::before {
+  .ba-frame::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -58,7 +82,7 @@
     pointer-events: none;
   }
 
-  .project-stage {
+  .ba-tag {
     position: absolute;
     top: 1.25rem;
     left: 1.25rem;
@@ -72,134 +96,73 @@
     z-index: 3;
   }
 
-  .project-stage.after { background: var(--ink); color: var(--brass); }
+  .ba-tag.after { background: var(--ink); color: var(--brass); }
 
-  .project-info {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 2rem;
-    align-items: baseline;
-    padding-top: 1rem;
-    border-top: 1px solid var(--cream-deep);
-  }
-
-  .project-num {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 1.2rem;
-    color: var(--brass-deep);
-  }
-
-  .project-title {
-    font-family: var(--font-display);
-    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-    line-height: 1.2;
-  }
-
-  .project-title em { font-family: var(--font-accent); color: var(--brass-deep); font-style: italic; }
-
-  .project-meta {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-align: right;
-  }
-
-  .project-description {
-    margin-top: 1rem;
-    max-width: 720px;
-  }
-
-  /* Single-image project (full-bleed) */
-  .project-single {
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 1.5rem;
-  }
-
-  .project-single img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 1.5s cubic-bezier(0.2, 0.7, 0.3, 1);
-  }
-  .project-single:hover img { transform: scale(1.03); }
-
-  .project-single::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    box-shadow: inset 0 0 0 1px rgba(200, 184, 138, 0.3);
-    z-index: 2;
-    pointer-events: none;
+  .featured-caption {
+    margin-top: 2rem;
+    max-width: 640px;
   }
 
   @media (max-width: 720px) {
-    .project-info { grid-template-columns: auto 1fr; }
-    .project-meta { grid-column: 1 / -1; text-align: left; }
+    .featured-meta { grid-template-columns: auto 1fr; }
+    .featured-tag { grid-column: 1 / -1; text-align: left; }
   }
 
-  /* Pull quote between projects */
-  .pull-quote {
-    background: var(--cream);
-    padding: clamp(4rem, 7vw, 6rem) var(--pad);
-    margin: clamp(3rem, 6vw, 5rem) 0;
-    text-align: center;
-    border-top: 1px solid var(--cream-deep);
-    border-bottom: 1px solid var(--cream-deep);
-  }
-
-  .pull-quote blockquote {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-    line-height: 1.3;
-    max-width: 720px;
-    margin: 0 auto 1.5rem;
-    color: var(--ink);
-  }
-
-  .pull-quote cite {
-    font-family: var(--font-sans);
-    font-size: 0.7rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--brass-deep);
-    font-style: normal;
-  }
-
-  /* Coming soon banner */
-  .more-soon {
-    text-align: center;
-    padding: clamp(4rem, 7vw, 6rem) var(--pad);
+  .more-coming {
     background: var(--ink);
     color: var(--cream);
+    padding: clamp(5rem, 9vw, 8rem) 0;
+    text-align: center;
   }
 
-  .more-soon .eyebrow { color: var(--brass); }
-  .more-soon h2 {
+  .more-coming .eyebrow { color: var(--brass); }
+
+  .more-coming h2 {
     color: var(--cream);
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
     margin: 1rem 0 1.5rem;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .more-soon h2 em { font-family: var(--font-accent); color: var(--brass); font-style: italic; }
-  .more-soon p {
+
+  .more-coming h2 em {
+    font-family: var(--font-accent);
+    color: var(--brass);
+    font-style: italic;
+  }
+
+  .more-coming p {
     color: rgba(243, 238, 228, 0.75);
     max-width: 520px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 2.5rem;
+    font-size: 1.05rem;
   }
-  .more-soon .btn {
+
+  .more-coming-actions {
+    display: inline-flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .more-coming .btn {
     background: var(--brass);
     border-color: var(--brass);
     color: var(--ink);
   }
-  .more-soon .btn:hover { background: transparent; color: var(--brass); }
+  .more-coming .btn:hover { background: transparent; color: var(--brass); }
+
+  .more-coming .btn-ghost {
+    background: transparent;
+    color: var(--cream);
+    border-color: rgba(243, 238, 228, 0.35);
+  }
+  .more-coming .btn-ghost:hover { background: var(--cream); color: var(--ink); border-color: var(--cream); }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">
@@ -219,99 +182,47 @@
   </div>
 </nav>
 
-<!-- HEADER -->
 <header class="page-header">
   <div class="wrap">
     <div class="eyebrow fade-up">— Selected Work</div>
-    <h1 class="fade-up d1">A portfolio of <em>recent commissions</em>.</h1>
-    <p class="fade-up d2">Each project is documented before, during, and after — a record of what came in, what we did, and what went home.</p>
+    <h1 class="fade-up d1">A small <em>portfolio</em>.</h1>
+    <p class="fade-up d2">We're a young workshop with a growing record of work. Here's a recent piece.</p>
   </div>
 </header>
 
-<!-- INTRO -->
-<div class="gallery-intro reveal">
-  <div class="ornament">
-    <span class="ornament-line"></span>
-    <span class="ornament-dot"></span>
-    <span class="ornament-line"></span>
-  </div>
-</div>
-
-<!-- PROJECTS -->
-<section class="projects wrap">
-
-  <!-- Project 01 — before/after -->
-  <article class="project">
-    <div class="project-grid">
-      <div class="project-img reveal">
-        <span class="project-stage">Before</span>
-        <img src="assets/photos/gold-chair-before.jpg" alt="A vintage gold brocade armchair in worn condition, before restoration">
-      </div>
-      <div class="project-img reveal">
-        <span class="project-stage after">After</span>
-        <img src="assets/photos/grey-chair-after-2.jpg" alt="The same armchair after restoration, rewrapped in heathered grey linen">
-      </div>
-    </div>
-    <div class="project-info reveal">
-      <span class="project-num">№ 01</span>
-      <h3 class="project-title">A 1960s lounge chair, <em>reborn</em>.</h3>
-      <span class="project-meta">Reupholstery · 4 Weeks</span>
-    </div>
-    <p class="project-description reveal">A retired gold-brocade lounger from a Tallahassee estate. Frame intact, springs holding, but the original fabric was beyond saving. Stripped, rebuilt, and rewrapped in a soft heathered linen with new tufted buttons and welted seat cushion.</p>
-  </article>
-
-  <!-- Pull quote -->
-  <div class="pull-quote reveal">
-    <blockquote>"The piece you love, made new — without losing what made it yours."</blockquote>
-    <cite>— Jason White, Founder</cite>
+<section class="featured-project wrap">
+  <div class="featured-meta reveal">
+    <span class="featured-num">№ 01</span>
+    <h2 class="featured-title">A 1960s lounge chair, <em>reborn</em>.</h2>
+    <span class="featured-tag">Reupholstery · 4 Weeks</span>
   </div>
 
-  <!-- Project 02 — single image -->
-  <article class="project">
-    <div class="project-single reveal">
-      <img src="assets/photos/grey-chair-with-jason.jpg" alt="Jason White seated in a freshly restored armchair">
+  <div class="ba-pair">
+    <div class="ba-frame reveal">
+      <span class="ba-tag">Before</span>
+      <img src="assets/photos/gold-chair-before.jpg" alt="A vintage gold brocade armchair in worn condition">
     </div>
-    <div class="project-info reveal">
-      <span class="project-num">№ 02</span>
-      <h3 class="project-title">The maker's <em>test sit</em>.</h3>
-      <span class="project-meta">Quality Check · 2026</span>
+    <div class="ba-frame reveal">
+      <span class="ba-tag after">After</span>
+      <img src="assets/photos/grey-chair-after-2.jpg" alt="The same armchair after restoration, rewrapped in heathered grey linen">
     </div>
-    <p class="project-description reveal">Every piece gets a final sit-test before it leaves the workshop. Springs, cushion firmness, fabric tension, arm height — all checked the only way they can really be checked. By the maker, with a cup of coffee, in the chair itself.</p>
-  </article>
+  </div>
 
-  <!-- Project 03 — detail shot -->
-  <article class="project">
-    <div class="project-grid">
-      <div class="project-img reveal">
-        <span class="project-stage after">Detail</span>
-        <img src="assets/photos/grey-chair-after-1.jpg" alt="Detail view of tufted backrest and welted cushion">
-      </div>
-      <div class="project-img reveal">
-        <span class="project-stage after">Detail</span>
-        <img src="assets/photos/grey-chair-after-2.jpg" alt="Side profile showing arm construction and skirt">
-      </div>
-    </div>
-    <div class="project-info reveal">
-      <span class="project-num">№ 03</span>
-      <h3 class="project-title">In the <em>details</em>.</h3>
-      <span class="project-meta">Tufting · Welting · Skirt</span>
-    </div>
-    <p class="project-description reveal">A closer look at the work that doesn't catch the eye until you sit down. Hand-tufted buttons, welt cord run by hand along every seam, and a tailored skirt that hides the legs at exactly the right height.</p>
-  </article>
-
+  <p class="featured-caption reveal">A retired gold-brocade lounger from a Tallahassee estate. Frame and springs intact, but the original fabric was beyond saving. Stripped, rebuilt, and rewrapped in a soft heathered linen with new tufted buttons and welted seat cushion.</p>
 </section>
 
-<!-- MORE SOON -->
-<section class="more-soon">
+<section class="more-coming">
   <div class="wrap">
-    <div class="eyebrow reveal">— More to come</div>
-    <h2 class="reveal">The workshop is <em>always working</em>.</h2>
-    <p class="reveal">New projects are documented as they finish. Follow along on Instagram for the day-to-day, or get in touch if you'd like to start a project of your own.</p>
-    <a href="contact.html" class="btn reveal">Start a project <span class="arrow">→</span></a>
+    <div class="eyebrow reveal">— More on the way</div>
+    <h2 class="reveal">New projects are <em>documented as they finish</em>.</h2>
+    <p class="reveal">We're a small shop, and we'd rather show a few pieces well than fill a page with stock photos. Check back as the portfolio grows — or get in touch to start a project of your own.</p>
+    <div class="more-coming-actions">
+      <a href="contact.html" class="btn reveal">Start a project <span class="arrow">→</span></a>
+      <a href="tel:+18505551234" class="btn btn-ghost reveal">Call the shop</a>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">

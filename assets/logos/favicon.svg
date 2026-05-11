@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" fill="#1A1916"></rect>
+  <path d="M 5 24 L 5 14 A 11 11 0 0 1 27 14 L 27 24" fill="none" stroke="#C8B88A" stroke-width="1"></path>
+  <rect x="14.5" y="1.5" width="3" height="3" fill="#C8B88A"></rect>
+  <text x="16" y="22" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-weight="700" font-size="14" letter-spacing="-0.6" fill="#C8B88A">JW</text>
+</svg>

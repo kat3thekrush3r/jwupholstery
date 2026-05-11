@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — JW Upholstery</title>
+<meta name="description" content="Furniture reupholstery, antique restoration, custom headboards and cushions — handcrafted in Tallahassee, Florida.">
+<link rel="icon" type="image/svg+xml" href="assets/logos/favicon.svg">
+<link rel="apple-touch-icon" href="assets/logos/apple-touch.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter+Tight:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .service-block {
+    padding: clamp(4rem, 7vw, 6rem) 0;
+    border-bottom: 1px solid var(--cream-deep);
+  }
+  .service-block:last-of-type { border-bottom: none; }
+
+  .service-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+
+  .service-block:nth-of-type(even) .service-inner {
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  .service-block:nth-of-type(even) .service-image { order: -1; }
+
+  .service-image {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .service-image img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 1.5s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+
+  .service-image:hover img { transform: scale(1.04); }
+
+  .service-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(200, 184, 138, 0.4);
+    z-index: 2;
+  }
+
+  .service-num-large {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 4rem;
+    color: var(--brass-deep);
+    line-height: 1;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  .service-content h2 {
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    margin: 0.5rem 0 1.25rem;
+  }
+
+  .service-content h2 em {
+    font-family: var(--font-accent);
+    color: var(--brass-deep);
+    font-style: italic;
+  }
+
+  .service-content p {
+    font-size: 1.0625rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-includes {
+    list-style: none;
+    margin: 1.75rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--cream-deep);
+    border-bottom: 1px solid var(--cream-deep);
+  }
+
+  .service-includes li {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    padding: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .service-includes li::before {
+    content: "";
+    width: 6px; height: 6px;
+    background: var(--brass-deep);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 860px) {
+    .service-inner, .service-block:nth-of-type(even) .service-inner {
+      grid-template-columns: 1fr;
+    }
+    .service-block:nth-of-type(even) .service-image { order: 0; }
+  }
+
+  /* Pricing note */
+  .pricing-note {
+    background: var(--ink);
+    color: var(--cream);
+    padding: clamp(4rem, 7vw, 6rem) 0;
+    text-align: center;
+  }
+
+  .pricing-note .eyebrow { color: var(--brass); }
+  .pricing-note h2 {
+    color: var(--cream);
+    font-size: clamp(2rem, 4.5vw, 2.75rem);
+    margin: 1rem 0 1.5rem;
+  }
+  .pricing-note h2 em { font-family: var(--font-accent); color: var(--brass); font-style: italic; }
+  .pricing-note p {
+    color: rgba(243, 238, 228, 0.75);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.0625rem;
+  }
+  .pricing-note .btn { background: var(--brass); border-color: var(--brass); color: var(--ink); }
+  .pricing-note .btn:hover { background: transparent; color: var(--brass); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logos/horizontal-black.svg" alt="JW Upholstery">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Request a Quote</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="wrap">
+    <div class="eyebrow fade-up">— What We Do</div>
+    <h1 class="fade-up d1">Three crafts, <em>one workshop</em>.</h1>
+    <p class="fade-up d2">Each piece that comes through our doors is treated as its own commission. Below is the work we love most, and the way we approach it.</p>
+  </div>
+</header>
+
+<!-- REUPHOLSTERY -->
+<section id="reupholstery" class="service-block">
+  <div class="wrap">
+    <div class="service-inner">
+      <div class="service-content reveal">
+        <div class="service-num-large">i.</div>
+        <h2>Furniture <em>Reupholstery</em></h2>
+        <p>The heart of what we do. Sofas, armchairs, dining seats, ottomans — anything with a frame and a fabric. We strip the piece back, rebuild what needs rebuilding, and rewrap it in fabric chosen alongside you from our sample library or one you've sourced yourself.</p>
+        <p>The work is done by hand, the way it has been done for generations, because shortcuts always tell on themselves in the end.</p>
+        <ul class="service-includes">
+          <li>Sofas, sectionals &amp; loveseats</li>
+          <li>Armchairs, accent chairs, recliners</li>
+          <li>Dining chairs &amp; bar stools</li>
+          <li>Ottomans &amp; benches</li>
+          <li>Custom welting, tufting &amp; piping</li>
+        </ul>
+        <a href="contact.html" class="btn">Request a quote <span class="arrow">→</span></a>
+      </div>
+      <div class="service-image reveal">
+        <img src="assets/photos/grey-chair-after-1.jpg" alt="Custom reupholstered armchair in heathered grey linen">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESTORATION -->
+<section id="restoration" class="service-block">
+  <div class="wrap">
+    <div class="service-inner">
+      <div class="service-content reveal">
+        <div class="service-num-large">ii.</div>
+        <h2>Antique <em>Restoration</em></h2>
+        <p>Some pieces deserve more than a re-cover. Heirloom furniture often needs frame repair, spring retying, horsehair or jute replacement, and period-correct techniques to bring it back without losing its character.</p>
+        <p>We treat antique work as restoration, not renovation — preserving what makes the piece original, replacing only what's failed.</p>
+        <ul class="service-includes">
+          <li>Frame repair &amp; reinforcement</li>
+          <li>Eight-way hand-tied springs</li>
+          <li>Traditional horsehair &amp; jute</li>
+          <li>Period-correct fabrics on request</li>
+          <li>Wood refinishing referrals</li>
+        </ul>
+        <a href="contact.html" class="btn">Request a quote <span class="arrow">→</span></a>
+      </div>
+      <div class="service-image reveal">
+        <img src="assets/photos/gold-chair-before.jpg" alt="Vintage armchair awaiting restoration">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEADBOARDS -->
+<section id="headboards" class="service-block">
+  <div class="wrap">
+    <div class="service-inner">
+      <div class="service-content reveal">
+        <div class="service-num-large">iii.</div>
+        <h2>Headboards &amp; <em>Cushions</em></h2>
+        <p>Custom-built from scratch to your dimensions. Whether you've got a tricky wall, an oversized king bed, or a built-in bench needing seat cushions, we'll build it to fit — no shortcuts, no off-the-rack approximations.</p>
+        <p>Common requests include channel-tufted headboards, button-tufted styles, slipcovered window seats, and replacement cushions for outdoor furniture in marine-grade fabric.</p>
+        <ul class="service-includes">
+          <li>Custom headboards (any size)</li>
+          <li>Channel &amp; button tufting</li>
+          <li>Window seats &amp; bench cushions</li>
+          <li>Outdoor &amp; marine cushions</li>
+          <li>Decorative pillows &amp; bolsters</li>
+        </ul>
+        <a href="contact.html" class="btn">Request a quote <span class="arrow">→</span></a>
+      </div>
+      <div class="service-image reveal">
+        <img src="assets/photos/grey-chair-after-2.jpg" alt="Tufted detail on a custom-built upholstered piece">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING NOTE -->
+<section class="pricing-note">
+  <div class="wrap">
+    <div class="eyebrow reveal">— A note on pricing</div>
+    <h2 class="reveal">Every piece is <em>its own quote</em>.</h2>
+    <p class="reveal">Reupholstery isn't a fixed-price product. The fabric, the frame, the condition, and the complexity all matter — so we quote each project after seeing it. Most projects start with a quick photo and phone call, with a written estimate to follow.</p>
+    <a href="tel:+18505551234" class="btn reveal">Call (850) 555-1234 <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/logos/full-gold.svg" alt="JW Upholstery">
+      <p>A small workshop in Tallahassee, Florida — restoring and reupholstering furniture worth keeping.</p>
+    </div>
+    <div>
+      <h4>Visit</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><a href="tel:+18505551234">(850) 555-1234</a></p>
+      <p><a href="mailto:jason@jwupholstery.com">jason@jwupholstery.com</a></p>
+      <p style="margin-top: 1rem;">Tallahassee, Florida</p>
+      <p>By appointment</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 JW Upholstery</span>
+    <span>Atelier &amp; Workshop · Est. Tallahassee</span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
